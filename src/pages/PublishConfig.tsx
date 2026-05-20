@@ -24,7 +24,7 @@ const PublishConfigPage = () => {
   const addTime = (platform: string) => {
     const config = configs.find(c => c.platform === platform);
     if (config) {
-      updateConfig(platform, { publishTimes: [...config.publishTimes, '09:00' });
+      updateConfig(platform, { publishTimes: [...config.publishTimes, '09:00'] });
     }
   };
 
@@ -147,7 +147,7 @@ const PublishConfigPage = () => {
               </div>
             </div>
           );
-        }}
+          })}
         </div>
       </div>
     </Layout>

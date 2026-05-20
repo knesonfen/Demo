@@ -1,3 +1,4 @@
+import React from 'react';
 import Layout from '../components/Layout';
 import { useAppStore } from '../store';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, LineChart, Line, PieChart, Pie, Cell } from 'recharts';
@@ -28,7 +29,7 @@ const Analytics = () => {
     likes: data.likes,
     comments: data.comments,
     shares: data.shares
-  });
+  }));
 
   const pieData = Object.entries(platformData).map(([platform, data]) => ({
     name: getPlatformName(platform),
@@ -69,8 +70,8 @@ const Analytics = () => {
                   <p className="text-sm text-gray-600 mb-1">{card.label}</p>
                   <p className="text-3xl font-bold text-gray-900">{card.value.toLocaleString()}</p>
                 </div>
-                <div className={`${card.iconBg} p-3 rounded-lg">
-                  <card.icon className={`w-6 h-6 ${card.iconColor}`} />
+                <div className={`${card.iconBg} p-3 rounded-lg`}>
+                  {React.createElement(card.icon, { className: `w-6 h-6 ${card.iconColor}` })}
                 </div>
               </div>
             </div>
@@ -95,6 +96,7 @@ const Analytics = () => {
               </BarChart>
             </ResponsiveContainer>
           </div>
+        </div>
         </div>
 
         <div className="bg-white rounded-xl shadow-sm border p-6">
@@ -121,7 +123,6 @@ const Analytics = () => {
             </ResponsiveContainer>
           </div>
         </div>
-      </div>
 
         <div className="bg-white rounded-xl shadow-sm border p-6">
           <h3 className="text-lg font-semibold text-gray-900 mb-6">内容表现</h3>
